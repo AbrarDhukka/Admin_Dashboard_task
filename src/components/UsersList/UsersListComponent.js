@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-
 import User from "../UserComponent/UserComponent";
 import config from "../../constants";
-import styles from "./UsersListComponent.module.css";
+
 
 const UsersList = (props) => {
   const {
@@ -18,13 +17,11 @@ const UsersList = (props) => {
     page,
   } = props;
 
-
   useEffect(() => {
     if (users.length === 0 && page > 1) {
       setPage(page - 1);
     }
   }, [page, setPage, users.length]);
-
 
   //The purpose of this loop is to generate empty table rows to fill up the remaining space in a table up to Page size = 10.
   //Suppose if you delete 1 user from row, it will automatically add another user from previous page to current page.
@@ -38,14 +35,14 @@ const UsersList = (props) => {
   }
 
   if (users.length === 0 && page === 1) {
-    return <div>NO USERS IN THE SYSTEM</div>;
+    return <div>No Users Present.</div>;
   }
 
   return (
-    <table className={styles.table}>
+    <table className="w-[80%] m-auto h-[80%] border border-collapse table-fixed">
       <thead>
-        <tr>
-          <th>
+        <tr className="border border-black text-left h-[10%]">
+          <th className="font-bold text-lg px-1">
             <input
               type="checkbox"
               ref={selectAllRef}
@@ -55,13 +52,13 @@ const UsersList = (props) => {
               name="selectAll"
             />
           </th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Action</th>
+          <th className="font-bold text-lg px-1">Name</th>
+          <th className="font-bold text-lg px-1">Email</th>
+          <th className="font-bold text-lg px-1">Role</th>
+          <th className="font-bold text-lg px-1">Action</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="font-thin">
         {users.map((user) => {
           return user.show ? (
             <User

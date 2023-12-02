@@ -11,7 +11,7 @@ import { searchInUsers } from "./utilities/SearchUtility";
 function App() {
   const [users, setUsers] = useState([]);
   const [update, setUpdate] = useState(false);
-  const [searchInput, setSearchInput] = useState("")
+  const [searchInput, setSearchInput] = useState("");
   const [page, setPage] = useState(1);
   const selectAllRef = useRef(null);
   useEffect(() => {
@@ -30,9 +30,9 @@ function App() {
 
   const deleteUser = (id) => {
     let tempUsers = users.filter((user) => user.id !== id);
-    if (window.confirm("User  will be deleted")){
-    setUsers(tempUsers);
-    setUpdate((prevState) => !prevState);
+    if (window.confirm("User  will be deleted")) {
+      setUsers(tempUsers);
+      setUpdate((prevState) => !prevState);
     }
   };
 
@@ -91,16 +91,21 @@ function App() {
   const index = getRecordIndex(page);
   return (
     <div className="App">
-    <div>
-      <input
-        className="border border-black w-[80%] p-1 m-3"
-        type="text"
-        placeholder="Search by name, email or role"
-        //onChange={searchUsers}
-        value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}
-      ></input>
-      <button onClick={searchUsers} className="p-2 m-2 bg-black text-white rounded-lg">Search</button>
+      <div>
+        <input
+          className="border border-black w-[80%] p-1 m-3"
+          type="text"
+          placeholder="Search by name, email or role"
+          //onChange={searchUsers}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        ></input>
+        <button
+          onClick={searchUsers}
+          className="p-2 m-2 bg-black text-white rounded-lg"
+        >
+          Search
+        </button>
       </div>
       <UsersList
         page={page}

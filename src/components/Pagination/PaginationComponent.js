@@ -1,8 +1,6 @@
 import { getTotalPages } from "../../utilities/PagingUtility";
 import PropTypes from "prop-types";
 
-import styles from "./PaginationComponent.module.css";
-
 const Pagination = (props) => {
   const { usersLength, setPage, page, deleteSelected } = props;
 
@@ -24,19 +22,23 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={-3}
-      className={`${styles.page1} ${page === 1 ? styles.disabled : ""}`}
+      className={`text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
+        page === 1 ? "bg-gray-400 cursor-not-allowed" : ""
+      }`}
       onClick={() => changePage(1)}
     >
-     first-page
+      first-page
     </div>
   );
   pages.push(
     <div
       key={-2}
-      className={`${styles.page1} ${page === 1 ? styles.disabled : ""}`}
+      className={`text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
+        page === 1 ? "bg-gray-400 cursor-not-allowed" : ""
+      }`}
       onClick={() => navigatePage(page - 1)}
     >
-    previous-page
+      previous-page
     </div>
   );
   for (let i = 1; i <= totalPages; i++) {
@@ -44,7 +46,9 @@ const Pagination = (props) => {
       <div
         key={i}
         onClick={() => changePage(i)}
-        className={`${styles.page} ${page === i ? styles.selected : ""}`}
+        className={`text-white bg-black rounded-[50%] m-[10px] cursor-pointer h-[25px] w-[25px] leading-[25px] ${
+          page === i ? "bg-white text-black" : ""
+        }`}
       >
         {i}
       </div>
@@ -53,28 +57,35 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={-1}
-      className={`${styles.page1} ${page === totalPages ? styles.disabled : ""}`}
+      className={`text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
+        page === totalPages ? "bg-gray-400 cursor-not-allowed" : ""
+      }`}
       onClick={() => navigatePage(page + 1)}
     >
-     next-page
+      next-page
     </div>
   );
   pages.push(
     <div
       key={0}
-      className={`${styles.page1} ${page === totalPages ? styles.disabled : ""}`}
+      className={`text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
+        page === totalPages ? "bg-gray-400 cursor-not-allowed" : ""
+      }`}
       onClick={() => changePage(totalPages)}
     >
-    last-page
+      last-page
     </div>
   );
 
   return (
-    <div className={styles.paginationContainer}>
-      <button className={styles.delete} onClick={() => deleteSelected()}>
+    <div className="grid grid-rows-1">
+      <button
+        className="mr-auto ml-[10%] bg-black text-white rounded-[20px] p-[6px] m-5 cursor-pointer"
+        onClick={() => deleteSelected()}
+      >
         Delete Selected
       </button>
-      <div className={styles.pagination}>{pages}</div>
+      <div className="flex justify-center gap-[30px]">{pages}</div>
     </div>
   );
 };
