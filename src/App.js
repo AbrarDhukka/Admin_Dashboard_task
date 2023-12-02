@@ -93,7 +93,7 @@ function App() {
     <div className="App">
       <div>
         <input
-          className="border border-black w-[60%] p-1 m-7"
+          className="border border-black w-[50%] p-2 rounded-lg my-11"
           type="text"
           placeholder="Search by name, email or role"
           //onChange={searchUsers}
@@ -112,6 +112,12 @@ function App() {
         >
           Search
         </button>
+        <button
+        className="mr-auto ml-[10%] bg-black text-white rounded-[20px] p-[6px] m-5 cursor-pointer"
+        onClick={() => deleteSelected()}
+      >
+        Delete Selected 🗑️
+      </button>
       </div>
       <UsersList
         page={page}
