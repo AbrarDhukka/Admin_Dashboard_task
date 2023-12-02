@@ -73,14 +73,14 @@ const User = (props) => {
         {user.edit ? (
           <button
             onClick={() => saveUser(user.id, nameRef, emailRef, roleRef)}
-            className="p-2 m-2 rounded-lg text-white bg-black"
+            className="save p-2 m-2 rounded-lg text-white bg-black"
           >
             Save 💾
           </button>
         ) : (
           <button
             onClick={() => editUser(user.id)}
-            className="p-2 m-2 rounded-lg text-white bg-black"
+            className="edit p-2 m-2 rounded-lg text-white bg-black"
           >
             Edit ✏️
           </button>
@@ -88,7 +88,7 @@ const User = (props) => {
 
         <button
           onClick={() => deleteUser(user.id)}
-          className="p-2 m-2 rounded-lg text-white bg-black"
+          className="delete p-2 m-2 rounded-lg text-white bg-black"
         >
           Delete 🗑️
         </button>

@@ -22,7 +22,7 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={-3}
-      className={`text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
+      className={`first-page text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
         page === 1 ? "bg-gray-400 cursor-not-allowed" : ""
       }`}
       onClick={() => changePage(1)}
@@ -33,7 +33,7 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={-2}
-      className={`text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
+      className={`previous-page text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
         page === 1 ? "bg-gray-400 cursor-not-allowed" : ""
       }`}
       onClick={() => navigatePage(page - 1)}
@@ -57,7 +57,7 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={-1}
-      className={`text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
+      className={`next-page text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
         page === totalPages ? "bg-gray-400 cursor-not-allowed" : ""
       }`}
       onClick={() => navigatePage(page + 1)}
@@ -68,7 +68,7 @@ const Pagination = (props) => {
   pages.push(
     <div
       key={0}
-      className={`text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
+      className={`last-page text-white bg-black rounded-[10%] p-1 m-[10px] cursor-pointer h-auto w-auto leading-[25px] ${
         page === totalPages ? "bg-gray-400 cursor-not-allowed" : ""
       }`}
       onClick={() => changePage(totalPages)}

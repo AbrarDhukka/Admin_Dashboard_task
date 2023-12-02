@@ -108,7 +108,7 @@ function App() {
         ></input>
         <button
           onClick={searchUsers}
-          className="p-2 m-2 bg-black text-white rounded-lg"
+          className="search-icon p-2 m-2 bg-black text-white rounded-lg"
         >
           Search
         </button>
