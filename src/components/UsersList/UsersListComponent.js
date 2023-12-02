@@ -39,10 +39,10 @@ const UsersList = (props) => {
   }
 
   return (
-    <table className="w-[80%] m-auto h-[80%] border border-collapse table-fixed">
+    <table className="w-[80%] m-auto h-[80%] border-collapse table-fixed">
       <thead>
-        <tr className="border border-black text-left h-[10%]">
-          <th className="font-bold text-lg px-1">
+        <tr className="border-[3px] border-black  text-left h-[10%]">
+          <th className="font-bold text-lg px-16">
             <input
               type="checkbox"
               ref={selectAllRef}

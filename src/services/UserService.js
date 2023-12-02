@@ -10,15 +10,7 @@ const getUsers = (setUsers) => {
     .then((res) => {
       setUsers(processUsersResponse(res.data));
     })
-    .catch((err) => getLocalUsers(setUsers));
-};
-
-const getLocalUsers = (setUsers) => {
-  axios
-    .get("./members.json")
-    .then((res) => {
-      setUsers(processUsersResponse(res.data));
-    })
     .catch((error) => console.error(error));
 };
+
 export { getUsers };

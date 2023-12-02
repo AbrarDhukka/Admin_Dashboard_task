@@ -93,12 +93,18 @@ function App() {
     <div className="App">
       <div>
         <input
-          className="border border-black w-[80%] p-1 m-3"
+          className="border border-black w-[60%] p-1 m-7"
           type="text"
           placeholder="Search by name, email or role"
           //onChange={searchUsers}
           value={searchInput}
+          //onChange={(e) => setSearchInput(e.target.value)}
           onChange={(e) => setSearchInput(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === 'Enter') {
+        searchUsers();
+      }
+    }}
         ></input>
         <button
           onClick={searchUsers}

@@ -47,7 +47,7 @@ const Pagination = (props) => {
         key={i}
         onClick={() => changePage(i)}
         className={`text-white bg-black rounded-[50%] m-[10px] cursor-pointer h-[25px] w-[25px] leading-[25px] ${
-          page === i ? "bg-white text-black" : ""
+          page === i ? "bg-red-400 text-black" : ""
         }`}
       >
         {i}

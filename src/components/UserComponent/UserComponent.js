@@ -13,9 +13,9 @@ const User = (props) => {
       key={user.id}
       className={`${
         user.selected ? "bg-gray-200" : ""
-      } border-black border-[1px] text-left h-[10%]`}
+      } border-b border-black text-left h-[10%]`}
     >
-      <td className="px-1">
+      <td className="px-16">
         <label for={`check-${user.id}`}>
           <input
             id={`check-${user.id}`}
@@ -55,7 +55,7 @@ const User = (props) => {
           defaultValue={user.email}
         />
       </td>
-      <td>
+      <td >
         <input
           className={`${
             user.edit
@@ -69,20 +69,20 @@ const User = (props) => {
           defaultValue={user.role}
         />
       </td>
-      <td>
+      <td className="border-none">
         {user.edit ? (
           <button
             onClick={() => saveUser(user.id, nameRef, emailRef, roleRef)}
             className="p-2 m-2 rounded-lg text-white bg-black"
           >
-            Save
+            Save 💾
           </button>
         ) : (
           <button
             onClick={() => editUser(user.id)}
             className="p-2 m-2 rounded-lg text-white bg-black"
           >
-            Edit
+            Edit ✏️
           </button>
         )}
 
@@ -90,7 +90,7 @@ const User = (props) => {
           onClick={() => deleteUser(user.id)}
           className="p-2 m-2 rounded-lg text-white bg-black"
         >
-          Delete
+          Delete 🗑️
         </button>
       </td>
     </tr>
