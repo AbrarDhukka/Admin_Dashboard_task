@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import User from "../UserComponent/UserComponent";
 import config from "../../constants";
 
-
+// Functional component for rendering a list of users
 const UsersList = (props) => {
+  // Destructuring props to extract required values
   const {
     users,
     deleteUser,
@@ -17,14 +18,15 @@ const UsersList = (props) => {
     page,
   } = props;
 
+  // useEffect to handle page navigation when there are no users on a page
   useEffect(() => {
     if (users.length === 0 && page > 1) {
       setPage(page - 1);
     }
   }, [page, setPage, users.length]);
 
-  //The purpose of this loop is to generate empty table rows to fill up the remaining space in a table up to Page size = 10.
-  //Suppose if you delete 1 user from row, it will automatically add another user from previous page to current page.
+  // Generating empty table rows to fill up the remaining space in a table up to Page size = 10.
+  // If a user is deleted, it automatically adds another user from the previous page to the current page.
   let fillRows = [];
   for (
     let i = users.filter((user) => user.show).length;
@@ -34,14 +36,16 @@ const UsersList = (props) => {
     fillRows.push(<tr key={i}></tr>);
   }
 
+  // If there are no users on the first page, display a message
   if (users.length === 0 && page === 1) {
     return <div>No Users Present.</div>;
   }
 
+  // Rendering the table with user data
   return (
     <table className="w-[80%] m-auto h-[80%] border-collapse table-fixed">
       <thead>
-        <tr className="border-[3px] border-black  text-left h-[10%]">
+        <tr className="border-[3px] border-black text-left h-[10%]">
           <th className="font-bold text-lg px-16">
             <input
               type="checkbox"
@@ -79,7 +83,7 @@ const UsersList = (props) => {
   );
 };
 
-//used for type-checking React props to ensure that the correct data types are passed to a component
+// PropType definitions for type-checking React props
 UsersList.propTypes = {
   users: PropTypes.array,
   deleteUser: PropTypes.func,
@@ -92,4 +96,5 @@ UsersList.propTypes = {
   page: PropTypes.number,
 };
 
+// Exporting the UsersList component
 export default UsersList;

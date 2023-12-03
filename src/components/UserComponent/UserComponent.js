@@ -1,9 +1,12 @@
 import { useRef } from "react";
 import PropTypes from "prop-types";
 
+// Functional component representing a user row in a table
 const User = (props) => {
+  // Destructure props to extract required properties and functions
   const { user, deleteUser, editUser, saveUser, selectOne } = props;
 
+  // Create refs for input fields to access their values
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const roleRef = useRef(null);
@@ -15,8 +18,9 @@ const User = (props) => {
         user.selected ? "bg-gray-200" : ""
       } border-b border-black text-left h-[10%]`}
     >
+      {/* Checkbox column */}
       <td className="px-16">
-        <label for={`check-${user.id}`}>
+        <label htmlFor={`check-${user.id}`}>
           <input
             id={`check-${user.id}`}
             type="checkbox"
@@ -27,6 +31,8 @@ const User = (props) => {
           ></input>
         </label>
       </td>
+
+      {/* Name column */}
       <td>
         <input
           className={`${
@@ -41,6 +47,8 @@ const User = (props) => {
           defaultValue={user.name}
         ></input>
       </td>
+
+      {/* Email column */}
       <td>
         <input
           className={`${
@@ -55,7 +63,9 @@ const User = (props) => {
           defaultValue={user.email}
         />
       </td>
-      <td >
+
+      {/* Role column */}
+      <td>
         <input
           className={`${
             user.edit
@@ -69,7 +79,10 @@ const User = (props) => {
           defaultValue={user.role}
         />
       </td>
+
+      {/* Action buttons column */}
       <td className="border-none">
+        {/* Render either Save button or Edit button based on the edit mode */}
         {user.edit ? (
           <button
             onClick={() => saveUser(user.id, nameRef, emailRef, roleRef)}
@@ -86,6 +99,7 @@ const User = (props) => {
           </button>
         )}
 
+        {/* Delete button */}
         <button
           onClick={() => deleteUser(user.id)}
           className="delete p-2 m-2 rounded-lg text-white bg-black"
@@ -97,6 +111,7 @@ const User = (props) => {
   );
 };
 
+// Prop types for type-checking React props
 User.propTypes = {
   user: PropTypes.object,
   deleteUser: PropTypes.func,
@@ -105,4 +120,5 @@ User.propTypes = {
   selectOne: PropTypes.func,
 };
 
+// Export the User component as the default export
 export default User;
