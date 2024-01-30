@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 
 // Functional component for pagination
 const Pagination = (props) => {
+  
   // Destructuring props for easier access
   const { usersLength, setPage, page, deleteSelected } = props;
 
