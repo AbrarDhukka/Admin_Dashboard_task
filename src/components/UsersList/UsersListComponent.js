@@ -96,5 +96,5 @@ UsersList.propTypes = {
   page: PropTypes.number,
 };
 
-// Exporting the UsersList component
+// Exporting the UsersList components
 export default UsersList;
