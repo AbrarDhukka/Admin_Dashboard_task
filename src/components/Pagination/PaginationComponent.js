@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 // Functional component for pagination
 const Pagination = (props) => {
-  
+
   // Destructuring props for easier access
   const { usersLength, setPage, page, deleteSelected } = props;
 
@@ -20,6 +20,7 @@ const Pagination = (props) => {
 
   // Function to handle navigating to a specific page with boundary checks
   const navigatePage = (index) => {
+    
     // Ensure index is within valid bounds
     if (index < 1) {
       index = 1;
